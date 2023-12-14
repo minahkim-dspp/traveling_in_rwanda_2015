@@ -16,10 +16,46 @@ The audience of the project is the
 
 ### The Data Source
 All the data comes from the [AreNA's DHS-GIS Database](https://www.ifpri.org/publication/arenas-dhs-gis-database) by the International Food Policy Research Institute (IFPRI). The data is under the Creative Commons Attribution 4.0 International, which allows to "reuse, distribute, and reproduce content even for commercial purposes" under the condition to "contain attribution of the content to IFPRI and any named authors of the dataset". You can read the full Term of Use from the [IFPRI Dataverse website that hosts the dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OQIPRW). 
+  
+Although the AreNA (Advancing Research on Nutrition and Agriculture) DHS-GIS dataset includes DHS (Demographic and Health Surveys) data, I only used the GIS portion of the data from this dataset. However, the GIS data of this data set are also collected during the DHS surveys, which are nation-wide surveys that happen across 90 countries. Then, the GIS data were aggregated into cluster level with some manipulation to hide the precise location. The locations were jittered around 0-2km for urban population and around 0-5km (or rarely 0-10km) for rural population. The resolution of the GIS data ranges from 250m to 50km. 
+  
+The AreNA data set includes multiple years of survey, but I filtered the data to those only collected in 2015 in Rwanda. This process left the dataset with 492 rows. I attempt to remove data that have missing GIS data, but no there was no missing data.
 
-The shapefiles were the "Second-level Administrative Dvision, Rwanda, 2015" and "Fourth-level Administrative Dvision, Rwanda, 2015", produced by Robert J. Hijamans and the Museum of Vertebrate Zoology of the University of California, Berkeley. I fetch the two shapefiles from the Web Feature Services (WFS) distributed by Stanford University. The shapefiles are "freely available for academic use and other non-commercial use" and can be used "to create maps and use the data in other ways for publication in academic journals, books, reports, etc" ([Hijmans & University of California, Berkeley](https://earthworks.stanford.edu/catalog/stanford-qy869sx9298).
+- All regions (in second administration level) have 16 clusters, except Gasabo, Kicukiro, and Nyarugenge. These three regions are urban areas around the capital city Kigali and have 20 clusters represented in the data. 
+- The longitude and the latitude of the AreNA data each ranges from 28.891085 to 30.842081 and from -2.801089 to -1.106774.
+- In this visualization, the user can alter the definition of the nearest city by changing the threshold for the local population. The dataset provides data for the distance and travel time for the city with the population more than 20,000, 50,000, 100,000, 250,000, and 500,000 people.
+
+Here are the summary statistis of **distance** from city based on each population.
+|        | more than 20k | more than 50k | more than 100k | more than 250k | more than 500k |
+|--------|---------------|---------------|----------------|----------------|----------------|
+| Min.   | 0.004         | 0.004         | 0.004          | 0.004          | 2.581          |
+| 1st Qu.| 0.140         | 0.212         | 0.212          | 0.252          | 3.287          |
+| Median | 0.239         | 0.387         | 0.387          | 0.463          | 3.499          |
+| Mean   | 0.258         | 0.369         | 0.378          | 0.437          | 3.599          |
+| 3rd Qu.| 0.355         | 0.521         | 0.533          | 0.623          | 3.894          |
+| Max.   | 0.755         | 0.755         | 0.943          | 0.942          | 4.713          |
+
+
+Here are the summary statistics of **time travel** from city based on each population.
+  
+|        | more than 20k | more than 50k | more than 100k | more than 250k | more than 500k |
+|--------|---------------|---------------|----------------|----------------|----------------|
+| Min.   | 11.37         | 11.37         | 11.37          | 11.37          | 492.1          |
+| 1st Qu.| 102.34        | 150.38        | 150.38         | 160.01         | 715.8          |
+| Median | 177.56        | 215.16        | 215.16         | 224.66         | 804.3          |
+| Mean   | 197.74        | 230.79        | 232.26         | 239.40         | 813.7          |
+| 3rd Qu.| 274.22        | 299.55        | 300.38         | 305.79         | 881.3          |
+| Max.   | 684.92        | 761.49        | 761.49         | 761.49         | 1396.1         |
+
+
+
+
+
+The shapefiles were the "Second-level Administrative Dvision, Rwanda, 2015" and "Fourth-level Administrative Dvision, Rwanda, 2015", produced by Robert J. Hijamans and the Museum of Vertebrate Zoology of the University of California, Berkeley. I fetch the two shapefiles from the Web Feature Services (WFS) distributed by Stanford University. The shapefiles are "freely available for academic use and other non-commercial use" and can be used "to create maps and use the data in other ways for publication in academic journals, books, reports, etc" ([Hijmans & University of California, Berkeley](https://earthworks.stanford.edu/catalog/stanford-qy869sx9298)).
 
 ### Technology / Platform
+This product is written using the Rshiny package and hosted in shinyapps.io. In addition to tidyverse and ggplot2, it also uses the [sf](https://r-spatial.github.io/sf/) and the [geofacet](https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html) package to visaulize geospatial data.
+
 ## Analysis
 
 ## Reference
