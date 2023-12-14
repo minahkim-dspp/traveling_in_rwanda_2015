@@ -12,18 +12,18 @@ In 2020, more than 76% of the Rwandan population depended on subsidence farming 
 This data visualization illustrates the relationship between the distance to the nearest city and the time it takes for the people to travel to the nearest city using the 2015 AreNA data from IFPRI. For researchers who have never worked with Rwanda before, it aims to provide the initial overview of the complicated relationship between the travel time and the distance in Rwanda. 
 
 ### The Intended Audience of the project
-The audience of the project is the 
+The audience of this project is the 
 
 ### The Data Source
 All the data comes from the [AreNA's DHS-GIS Database](https://www.ifpri.org/publication/arenas-dhs-gis-database) by the International Food Policy Research Institute (IFPRI). The data is under the Creative Commons Attribution 4.0 International, which allows to "reuse, distribute, and reproduce content even for commercial purposes" under the condition to "contain attribution of the content to IFPRI and any named authors of the dataset". You can read the full Term of Use from the [IFPRI Dataverse website that hosts the dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OQIPRW). 
   
-Although the AreNA (Advancing Research on Nutrition and Agriculture) DHS-GIS dataset includes DHS (Demographic and Health Surveys) data, I only used the GIS portion of the data from this dataset. However, the GIS data of this data set are also collected during the DHS surveys, which are nation-wide surveys that happen across 90 countries. Then, the GIS data were aggregated into cluster level with some manipulation to hide the precise location. The locations were jittered around 0-2km for urban population and around 0-5km (or rarely 0-10km) for rural population. The resolution of the GIS data ranges from 250m to 50km. 
+Although the AreNA (Advancing Research on Nutrition and Agriculture) DHS-GIS dataset includes DHS (Demographic and Health Surveys) data, I only used the GIS portion of the data from this dataset. However, the GIS data of this data set are also collected during the DHS surveys, which are nationwide surveys that happen across 90 countries. Then, the GIS data were aggregated into cluster levels with some manipulation to hide the precise location. The locations were jittered around 0-2km for the urban population and around 0-5km (or rarely 0-10km) for the rural population. The resolution of the GIS data ranges from 250m to 50km. 
   
-The AreNA data set includes multiple years of survey, but I filtered the data to those only collected in 2015 in Rwanda. This process left the dataset with 492 rows. I attempt to remove data that have missing GIS data, but no there was no missing data.
-
-- All regions (in second administration level) have 16 clusters, except Gasabo, Kicukiro, and Nyarugenge. These three regions are urban areas around the capital city Kigali and have 20 clusters represented in the data. 
-- The longitude and the latitude of the AreNA data each ranges from 28.891085 to 30.842081 and from -2.801089 to -1.106774.
-- In this visualization, the user can alter the definition of the nearest city by changing the threshold for the local population. The dataset provides data for the distance and travel time for the city with the population more than 20,000, 50,000, 100,000, 250,000, and 500,000 people.
+The AreNA data set includes multiple years of surveys, but I filtered the data to those only collected in 2015 in Rwanda. This process left the dataset with 492 rows. I attempted to remove data that had missing GIS data, but there was no missing data.
+ 
+- All regions (in the second administration level) have 16 clusters, except Gasabo, Kicukiro, and Nyarugenge. These three regions are urban areas around the capital city Kigali and have 20 clusters represented in the data. 
+- The longitude and the latitude of the AreNA data each range from 28.891085 to 30.842081 and from -2.801089 to -1.106774.
+- In this visualization, the user can alter the definition of the nearest city by changing the threshold for the local population. The dataset provides data for the distance and travel time for the city with a population of more than 20,000, 50,000, 100,000, 250,000, and 500,000 people.
 
 Here are the summary statistis of **distance** from city based on each population.
 |        | more than 20k | more than 50k | more than 100k | more than 250k | more than 500k |
@@ -68,7 +68,8 @@ Hijmans, R. J., University of California, Berkeley. Museum of Vertebrate Zoology
 International Food Policy Research Institute (IFPRI). (2021, February 23). Arena’s DHS-Gis Database. Harvard Dataverse. https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FOQIPRW 
   
 International Food Policy Research Institute (IFPRI). (2020). AReNA’s DHS-GIS Database. Washington, DC: IFPRI [dataset]. https://doi.org/10.7910/DVN/OQIPRW. Harvard Dataverse. Version 1.
+   
+U.S. Embassy in Rwanda. (n.d.). Geography. Retrieved from https://rw.usembassy.gov/embassy/kigali/agencies-offices/geography/
   
-https://www.degruyter.com/document/doi/10.1515/jafio-2021-0011/html
-https://rw.usembassy.gov/embassy/kigali/agencies-offices/geography/
+Weatherspoon, D., Miller, S., Niyitanga, F., Weatherspoon, L. & Oehmke, J. (2021). Rwanda’s Commercialization of Smallholder Agriculture: Implications for Rural Food Production and Household Food Choices. Journal of Agricultural & Food Industrial Organization, 19(1), 51-62. https://doi.org/10.1515/jafio-2021-0011
 
