@@ -2,6 +2,7 @@
 The link to the visualization is [here](https://kimminah.shinyapps.io/traveling_in_rwanda/).
 
 ## Executive Summary
+This visualization demonstrates the complicated relationship between the distance and the traveling time to the nearest city in Rwanda. Traveling time to the city is significant since reducing traveling time can increase the market participation of Rwandan people and improve the income level of Rwandan families. Using the Advancing Research on Nutrition and Agriculture GIS-DHS data set by the International Food Policy Research Institute, this website shows that it may take longer to travel to the city than one may expect from the distance because of various factors. It briefly discusses how the high altitude and the mountainous terrain can lag the travel time and encourages researchers to conduct further research on the topic.
 
 ## About the Project
 ### Context of the Project
@@ -9,23 +10,26 @@ How does food arrive on our table? In the world of globalization, food often tra
     
 In 2020, more than 76% of the Rwandan population depended on subsidence farming as a major source of income ([Weatherspoon et al., 2021](https://www.degruyter.com/document/doi/10.1515/jafio-2021-0011/html)). In other words, 76% of Rwandans farm to self-feed themselves rather than get involved in the food market. Although self-sustainable farming can be resilient to external shock, it usually produces less profit than selling the same product in the food market. When you glimpse the map of Rwanda, you may think that transportation is not a great hurdle in participating in the food market since it is a small country where you can easily travel from one end of a country to another in a day. However, Rwanda is called **the land of a thousand hills**. This mountainous country has an elevation that ranges from 1000m to 4500m ([U.S. Embassy in Rwanda](https://rw.usembassy.gov/embassy/kigali/agencies-offices/geography/)). These hills could be one of the many reasons that transportation time between the two points may not be proportional to the distance on the map in Rwanda.
   
-This data visualization illustrates the relationship between the distance to the nearest city and the time it takes for the people to travel to the nearest city using the 2015 AreNA data from IFPRI. For researchers who have never worked with Rwanda before, it aims to provide the initial overview of the complicated relationship between the travel time and the distance in Rwanda. 
+This data visualization illustrates the relationship between the distance to the nearest city and the time it takes for the people to travel to the nearest city using the 2015 Advancing Research on Nutrition and Agriculture(AreNA) data from IFPRI. For researchers who have never worked with Rwanda before, it aims to provide the initial overview of the complicated relationship between the travel time and the distance in Rwanda. 
 
 ### The Intended Audience of the project
-The audience of this project is the 
+The audience of this project is the researchers who are unfamiliar to the geography in Rwanda yet wants to have a basic understanding of the remoteness in Rwanda. I expect the audience to comprehend in reading basic graphs, but I did not think they have a deep knowledge in Rwanda. In fact, this visualization should work only as an overview of the geography and help them imagine the human interactions on this land to ignite questions. 
 
 ### The Data Source
 All the data comes from the [AreNA's DHS-GIS Database](https://www.ifpri.org/publication/arenas-dhs-gis-database) by the International Food Policy Research Institute (IFPRI). The data is under the Creative Commons Attribution 4.0 International, which allows to "reuse, distribute, and reproduce content even for commercial purposes" under the condition to "contain attribution of the content to IFPRI and any named authors of the dataset". You can read the full Term of Use from the [IFPRI Dataverse website that hosts the dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OQIPRW). 
   
-Although the AreNA (Advancing Research on Nutrition and Agriculture) DHS-GIS dataset includes DHS (Demographic and Health Surveys) data, I only used the GIS portion of the data from this dataset. However, the GIS data of this data set are also collected during the DHS surveys, which are nationwide surveys that happen across 90 countries. Then, the GIS data were aggregated into cluster levels with some manipulation to hide the precise location. The locations were jittered around 0-2km for the urban population and around 0-5km (or rarely 0-10km) for the rural population. The resolution of the GIS data ranges from 250m to 50km. 
+Although the AreNA (Advancing Research on Nutrition and Agriculture) DHS-GIS dataset includes DHS (Demographic and Health Surveys) data, I only used the GIS portion of the data from this dataset. However, the GIS data of this data set are also collected during the DHS surveys, which are nationwide surveys that happen across 90 countries. Then, the GIS data were aggregated into cluster levels with some manipulation to hide the precise location. The locations were jittered around 0-2km for the urban population and around 0-5km (or rarely 0-10km) for the rural population. The resolution of the GIS data ranges from 250m to 50km. As a result, one should be cautious of the confidence interval while plotting the dot on the map. 
+  
+Furthermore, the only data that describe the population of the cluster is the population density variables. However, it does not describe the total area of the cluster, preventing to estimate the total population represented by the cluster. The data set also does not describe any demographic information (e.g. gender, age, occupation, etc.) of the cluster. As a result, the reader should be aware that each point does not represent the same group of people. 
   
 The AreNA data set includes multiple years of surveys, but I filtered the data to those only collected in 2015 in Rwanda. This process left the dataset with 492 rows. I attempted to remove data that had missing GIS data, but there was no missing data.
  
 - All regions (in the second administration level) have 16 clusters, except Gasabo, Kicukiro, and Nyarugenge. These three regions are urban areas around the capital city Kigali and have 20 clusters represented in the data. 
 - The longitude and the latitude of the AreNA data each range from 28.891085 to 30.842081 and from -2.801089 to -1.106774.
+- When the cluster is noted as "Urban",  I use the urban population density. When it says it is "Rural", I use the rural population density. However, there are cases when the urban population density is recorded as 0. In those cases, I suppliment it with the rural population density data. 
 - In this visualization, the user can alter the definition of the nearest city by changing the threshold for the local population. The dataset provides data for the distance and travel time for the city with a population of more than 20,000, 50,000, 100,000, 250,000, and 500,000 people.
 
-Here are the summary statistis of **distance** from city based on each population.
+Here are the summary statistis of **distance** from city based on each population in minutes.
 |        | more than 20k | more than 50k | more than 100k | more than 250k | more than 500k |
 |--------|---------------|---------------|----------------|----------------|----------------|
 | Min.   | 0.004         | 0.004         | 0.004          | 0.004          | 2.581          |
@@ -36,7 +40,7 @@ Here are the summary statistis of **distance** from city based on each populatio
 | Max.   | 0.755         | 0.755         | 0.943          | 0.942          | 4.713          |
 
 
-Here are the summary statistics of **time travel** from city based on each population.
+Here are the summary statistics of **time travel** from city based on each population in kilometers.
   
 |        | more than 20k | more than 50k | more than 100k | more than 250k | more than 500k |
 |--------|---------------|---------------|----------------|----------------|----------------|
@@ -46,8 +50,6 @@ Here are the summary statistics of **time travel** from city based on each popul
 | Mean   | 197.74        | 230.79        | 232.26         | 239.40         | 813.7          |
 | 3rd Qu.| 274.22        | 299.55        | 300.38         | 305.79         | 881.3          |
 | Max.   | 684.92        | 761.49        | 761.49         | 761.49         | 1396.1         |
-
-
 
 
 
