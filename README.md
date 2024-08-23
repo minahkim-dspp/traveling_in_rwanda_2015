@@ -58,8 +58,6 @@ The shapefiles were the "Second-level Administrative Dvision, Rwanda, 2015" and 
 ### Technology / Platform
 This product is written using the Rshiny package and hosted in shinyapps.io. In addition to tidyverse and ggplot2, it also uses the [sf](https://r-spatial.github.io/sf/) and the [geofacet](https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html) package to visaulize geospatial data.
 
-## Analysis
-
 ## Reference
 Hijmans, R. J., University of California, Berkeley. Museum of Vertebrate Zoology. (n.d.) Second-level administrative divisions, Rwanda, 2015. Stanford EarthWork. Retrieved from https://earthworks.stanford.edu/catalog/stanford-qy869sx9298.
 
